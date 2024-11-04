@@ -1,0 +1,58 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home Page</title>
+</head>
+<body>
+{% block body %}
+    <header>
+        <h1>Welcome to Your Student Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#assignments">Assignments</a></li>
+            <li><a href="#announcements">Announcements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="profile" class="profile">
+            <h2>Your Profile</h2>
+            <p>Welcome, [Student Name]! Here you can view your personal details and track your academic progress.</p>
+            <!-- Add more profile details here -->
+        </section>
+
+        <section id="assignments" class="assignments">
+            <h2>Upcoming Assignments</h2>
+            <ul>
+                <li>Assignment 1: [Description] - Due Date: [Date]</li>
+                <li>Assignment 2: [Description] - Due Date: [Date]</li>
+                <li>Assignment 3: [Description] - Due Date: [Date]</li>
+                <!-- Add more assignments here -->
+            </ul>
+        </section>
+
+        <section id="announcements" class="announcements">
+            <h2>Announcements</h2>
+            <ul>
+                <li>Announcement 1: [Details]</li>
+                <li>Announcement 2: [Details]</li>
+                <li>Announcement 3: [Details]</li>
+                <!-- Add more announcements here -->
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Student Dashboard. All rights reserved.</p>
+    </footer>
+{% endblock %}
+</body>
+</html>
+
+

@@ -1,0 +1,51 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+    <header style="background-color: #4CAF50; color: white; padding: 10px 0; text-align: center;">
+        <h1 style="margin: 0;">Blog Page</h1>
+    </header>
+
+    <div class="container" style="width: 80%; margin: 20px auto;">
+        <!-- Add Post Form -->
+        <div class="add-post" style="background-color: white; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+
+            <h2 style="margin-bottom: 10px;">Add a New Post</h2>
+            <form method="POST" action="{% url 'add_post' %}">
+                {% csrf_token %}
+                <div style="margin-bottom: 10px;">
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title" id="title" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="content">Content</label><br>
+                    <textarea name="content" id="content" rows="5" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+                </div>
+                <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">
+                    Add Post
+                </button>
+            </form>
+        </div>
+
+        <!-- Blog Posts -->
+        <div class="posts">
+            <h2 style="margin-bottom: 10px;">All Posts</h2>
+            {% for post in posts %}
+                <div class="post" style="background-color: white; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <h3 style="margin: 0 0 10px;">{{ post.title }}</h3>
+                    <p style="color: #777;">Published on {{ post.published_date }}</p>
+                    <p>{{ post.content }}</p>
+                </div>
+            {% empty %}
+                <p>No posts available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

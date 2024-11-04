@@ -1,0 +1,45 @@
+
+{% extends 'navbar/facultynavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>faculty homepage</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+{% block body %}
+    <header style="background-color: #89CFF0; color: white; padding: 10px 0; text-align: center;">
+        <h1>faculty Hompage</h1>
+
+        <nav>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="display: inline; margin-right: 10px;"><a href="#home" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Home</a></li>
+                <li style="display: inline;"><a href="{%url 'add_student' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Add student</a></li>
+                <li style="display: inline;"><a href="{%url 'student_list' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">view student</a></li>
+
+                <li style="display: inline;"><a href="#" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Profile</a></li>
+                <li style="display: inline;"><a href ="{% url 'Blog' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Blog</a></li>
+                <li style="display: inline;"><a href="{% url 'add_course' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Add Courses</a></li>
+                <li style="display: inline;"><a href="{% url 'view_student_list' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">View student list</a></li>
+                <li style="display: inline;"><a href="{% url 'post_marks' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Post marks</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+
+      <img src="{% static 'images/facultyhomepage.png' %}" class="d-block w-100" alt="Management">
+
+
+
+    </main>
+    <footer style="background-color: #333; color: white; text-align: center; padding: 10px;">
+        <p>&copy; 2024 Faculty Home Page. All rights reserved.</p>
+    </footer>
+{% endblock %}
+
+</body>
+</html>
+

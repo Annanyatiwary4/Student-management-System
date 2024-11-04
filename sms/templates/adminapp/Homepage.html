@@ -1,0 +1,61 @@
+{% extends 'navbar/navbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+{% block body %}
+    <header style="background-color: #4CAF50; color: white; padding: 10px 0; text-align: center;">
+        <h1>Student Management System</h1>
+
+        <nav>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="display: inline; margin-right: 10px;"><a href="#home" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Home</a></li>
+                <li style="display: inline; margin-right: 10px;"><a href="{%url 'randompagecall' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Otp Generator</a></li>
+                <li style="display: inline; margin-right: 10px;"><a href="{% url 'add_task' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Tasks</a></li>
+                <li style="display: inline;"><a href="{%url 'calculatorlogic' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Calculator</a></li>
+                <li style="display: inline;"><a href="{%url 'exceptionpagelogic'%}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">ExceptionHandling</a></li>
+                <li style="display: inline;"><a href="{%url 'printpagecall' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Printer</a></li>
+                <li style="display: inline;"><a href="{%url 'registrationpagecall' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">registration</a></li>
+                <li style="display: inline;"><a href="{%url 'loginpagecall' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">login</a></li>
+                <li style="display: inline;"><a href="{%url 'upload_file' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">chart</a></li>
+                <li style="display: inline;"><a href="{%url 'feedback_view' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Feedback</a></li>
+                <li style="display: inline;"><a href="{%url 'add_contact' %}" style="color: white; text-decoration: none; padding: 8px 16px; background-color: #333; border-radius: 4px;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/image3.jpg' %}" class="d-block w-100" alt="Student Mangement">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/image1.jpg' %}" class="d-block w-100" alt="Management">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/images2.jpeg' %}" class="d-block w-100" alt="System">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    </main>
+    <footer style="background-color: #333; color: white; text-align: center; padding: 10px;">
+        <p>&copy; 2024 Student Management System</p>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

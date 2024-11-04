@@ -1,0 +1,71 @@
+{% extends 'navbar/navbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body style="font-family: Arial, sans-serif;
+            background-color:#d0e7ff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;"> <!-- Added padding to ensure the content doesn't touch the edges -->
+{% block body %}
+    <div style="background-color: #d0e7ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-left: 600px;
+            margin-right: 500px;
+            margin-top: 100px;
+            margin-bottom: 100px;"> <!-- Added margin for spacing -->
+        <h1 style="text-align: center;
+            margin-bottom: 20px;
+            color: #333;">Login</h1>
+        {% if messages %}
+            <div style="margin-bottom: 20px;
+            color: red;
+            font-size: 14px;
+            text-align: center;">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form method="post" action="{% url 'UserLoginLogic' %}">
+            {% csrf_token %}
+            <label for="username" style="display: block; margin-bottom: 8px;">Username:</label>
+            <input type="text" id="username" name="username" required
+            style="width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;">
+
+            <label for="password" style="display: block; margin-bottom: 8px;">Password:</label>
+            <input type="password" id="password" name="password" required
+            style="width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;">
+
+            <button type="submit" style="width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;">Login</button>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
