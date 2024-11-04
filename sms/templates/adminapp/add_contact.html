@@ -1,26 +1,61 @@
 {% load static %}
-<body style="font-family: 'Poppins', sans-serif; background-color: #f8f9fa; color: #333; padding: 20px;">
+<body style="font-family: 'Poppins', sans-serif; background: linear-gradient(to right, #a8e0f1, #f4f4f4); color: #333; padding: 20px;">
 
-    <form method="POST" style="max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <form method="POST" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
         {% csrf_token %}
 
-        <div class="form-group" style="margin-bottom: 15px;">
-            <label style="font-weight: bold; font-size: 14px;">{{ form.name.label_tag }}</label>
-            {{ form.name }}
+        <h2 style="text-align: center; margin-bottom: 20px; color: #4a90e2;">Add Contact</h2>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label style="font-weight: bold; font-size: 16px; color: #555;">{{ form.name.label_tag }}</label>
+            <div style="position: relative;">
+                {{ form.name }}
+                <div style="position: absolute; top: 100%; left: 0; right: 0; height: 2px; background-color: #4a90e2;"></div>
+            </div>
         </div>
-        <div class="form-group" style="margin-bottom: 15px;">
-            <label style="font-weight: bold; font-size: 14px;">{{ form.phone_number.label_tag }}</label>
-            {{ form.phone_number }}
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label style="font-weight: bold; font-size: 16px; color: #555;">{{ form.phone_number.label_tag }}</label>
+            <div style="position: relative;">
+                {{ form.phone_number }}
+                <div style="position: absolute; top: 100%; left: 0; right: 0; height: 2px; background-color: #4a90e2;"></div>
+            </div>
         </div>
 
-        <div class="form-group" style="margin-bottom: 15px;">
-            <label style="font-weight: bold; font-size: 14px;">{{ form.address.label_tag }}</label>
-            {{ form.address }}
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label style="font-weight: bold; font-size: 16px; color: #555;">{{ form.address.label_tag }}</label>
+            <div style="position: relative;">
+                {{ form.address }}
+                <div style="position: absolute; top: 100%; left: 0; right: 0; height: 2px; background-color: #4a90e2;"></div>
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; background-color: #007bff; border: none; border-radius: 5px; color: white; font-size: 16px; cursor: pointer;">
+        <button type="submit" style="width: 100%; padding: 12px; background-color: #4a90e2; border: none; border-radius: 5px; color: white; font-size: 18px; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);">
             Add Contact
         </button>
     </form>
 
+    <style>
+        /* Style the input fields */
+        input[type="text"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        button:hover {
+            background-color: #3a80c2; /* Darker blue on hover */
+            box-shadow: 0 6px 12px rgba(74, 144, 226, 0.3);
+        }
+    </style>
 </body>

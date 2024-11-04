@@ -1,46 +1,117 @@
-{% extends 'navbar/navbar.html' %}
 {% load static %}
 
 <html>
 <head>
     <title>Add Task</title>
-  <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+    font-family: 'Poppins', sans-serif; /* Use a modern font */
+    background: linear-gradient(to right, #e0f7fa, #fff); /* Light gradient background */
+    color: #333; /* Text color */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding to body */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding in height */
+}
+
+.container {
+    max-width: 800px; /* Increased maximum width */
+    padding: 40px; /* Increased padding for a larger box */
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+h1, h2 {
+    color: #007bff; /* Primary color for headings */
+    margin-bottom: 20px; /* Space below headings */
+}
+
+form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Column direction */
+    gap: 15px; /* Space between form elements */
+}
+
+button {
+    padding: 10px; /* Padding for button */
+    background-color: #007bff; /* Button background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* White text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.task-list {
+    margin-top: 30px; /* Space above task list */
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+li {
+    display: flex; /* Flexbox for task items */
+    justify-content: space-between; /* Space between title and delete button */
+    padding: 10px; /* Padding for list items */
+    border-bottom: 1px solid #ccc; /* Divider line */
+}
+
+li:last-child {
+    border-bottom: none; /* Remove last border */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red color for delete button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* White text */
+    padding: 5px 10px; /* Padding */
+    font-size: 14px; /* Smaller font size */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+    </style>
 </head>
 <body>
 {% block body %}
 
 <div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <h1>Add Task</h1>
-      <form method="post" action="{% url 'add_task' %}">
+    <h1>Add Task</h1>
+    <form method="post" action="{% url 'add_task' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <br><br>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
         </div>
-      </form>
-    </div>
+    </form>
 
-    <div class="col-auto d-flex align-items-center">
-      <div style="border-left: 2px solid black; height: 100%;"></div>
+    <div class="task-list">
+        <h2>Tasks</h2>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    {{ task.title }}
+                    <a href="{% url 'delete_task' task.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </li>
+            {% empty %}
+                <li>No tasks available.</li>
+            {% endfor %}
+        </ul>
     </div>
-
-    <div class="col">
-      <h2>Tasks</h2>
-      <ul>
-        {% for task in tasks %}
-          <li>
-            {{ task.title }}
-            <a href="{% url 'delete_task' task.pk %}" class="btn btn-danger btn-sm">Delete</a>
-          </li>
-        {% empty %}
-          <li>No tasks available.</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
 </div>
 
 {% endblock %}

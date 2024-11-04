@@ -1,14 +1,119 @@
-{% extends 'navbar/navbar.html' %}
+
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>simplecalculator</title>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 360px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(20px);
+            z-index: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            position: relative;
+        }
+
+        select {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            z-index: 1;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            color: #007bff;
+            z-index: 1;
+            position: relative;
+        }
+
+        @media (max-width: 400px) {
+            .calculator {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 {% block body %}
-<h1>Simple Calculator</h1>
-    <form method="post" action='#' >
+<div class="calculator">
+    <h1>Simple Calculator</h1>
+    <form method="post" action='#'>
         {% csrf_token %}
         <input type="number" name="num1" step="any" placeholder="Enter first number" required>
         <input type="number" name="num2" step="any" placeholder="Enter second number" required>
@@ -24,6 +129,7 @@
     {% if result is not None %}
     <h2>Result: {{ result }}</h2>
     {% endif %}
+</div>
 {% endblock %}
 </body>
 </html>

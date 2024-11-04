@@ -1,9 +1,60 @@
-{% extends 'navbar/navbar.html' %}
+
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Implementation of Exception Handling</title>
+    <style>
+        body {
+    font-family: 'Poppins', sans-serif; /* Use a modern font */
+    background: linear-gradient(to right, #e0f7fa, #ffffff); /* Light gradient background */
+    color: #333; /* Text color */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding to body */
+}
+
+.container {
+    max-width: 800px; /* Container max width */
+    padding: 40px; /* Container padding */
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    margin: auto; /* Center container */
+}
+
+h1, h2 {
+    color: #007bff; /* Primary color for headings */
+    margin-bottom: 20px; /* Space below headings */
+}
+
+.upload-form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Column direction */
+    gap: 15px; /* Space between form elements */
+}
+
+button {
+    padding: 10px; /* Padding for button */
+    background-color: #007bff; /* Button background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* White text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.chart-image {
+    max-width: 100%; /* Responsive chart image */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Space above chart */
+}
+
+    </style>
 </head>
 <body>
 
